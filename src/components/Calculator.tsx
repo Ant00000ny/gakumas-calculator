@@ -101,7 +101,7 @@ export default function Calculator() {
                         />
                         <Input
                             type="number"
-                            label="最终考核分"
+                            label="最终试验分数"
                             value={testValue}
                             onChange={handleTestValueChange}
                         />
@@ -110,7 +110,7 @@ export default function Calculator() {
                             value={isFirst.valueOf().toString()}
                             onChange={handleIsFirstValueChange}
                         >
-                            已取得第一名
+                           最终试验取得第一名
                         </Checkbox>
                     </div>
                 </div>

@@ -4,13 +4,13 @@ import {GithubIcon} from "@/components/icon/GithubIcon";
 
 export default function AppNavBar() {
     const githubLink = "https://www.github.com/Ant00000ny/gakumas-calculator";
-    const name = "Gakumas Calculator"
+    const name = "学马仕分数计算器"
 
 
     return (
         <Navbar className="fixed">
             <NavbarBrand>
-                <p className="font-bold text-inherit">G</p>
+                <p className="font-bold text-sans">学</p>
             </NavbarBrand>
             <NavbarContent className="flex justify-center items-center" justify="center">
                 <NavbarItem>

@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gakumas Calculator",
-  description: "Gakumas Calculator",
+  title: "学马仕计算器",
+  description: "学马仕计算器",
 };
 
 export default function RootLayout({

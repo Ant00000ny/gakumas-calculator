@@ -6,6 +6,7 @@ export default function CustomProgressBar({score}: { score: number }) {
     let cPlusRank = 4500;
     let bRank = 6000;
     let bPlusRank = 8000;
+    let aRank = 10000;
     let aPlusRank = 11500;
     let sRank = 13000;
 
@@ -18,27 +19,31 @@ export default function CustomProgressBar({score}: { score: number }) {
         if (value < cRank) {
             setMaxValue(cRank);
             setMinValue(0)
-            setValueLabel(`${value} / ${cRank} to C Rank`);
+            setValueLabel(`${value} / ${cRank} 到 C Rank`);
         } else if (value < cPlusRank) {
             setMaxValue(cPlusRank);
             setMinValue(cRank)
-            setValueLabel(`${value} / ${cPlusRank} to C+ Rank`);
+            setValueLabel(`${value} / ${cPlusRank} 到 C+ Rank`);
         } else if (value < bRank) {
             setMaxValue(bRank);
             setMinValue(cPlusRank)
-            setValueLabel(`${value} / ${bRank} to B Rank`);
+            setValueLabel(`${value} / ${bRank} 到 B Rank`);
         } else if (value < bPlusRank) {
             setMaxValue(bPlusRank);
             setMinValue(bRank)
-            setValueLabel(`${value} / ${bPlusRank} to B+ Rank`);
-        } else if (value < aPlusRank) {
-            setMaxValue(aPlusRank);
+            setValueLabel(`${value} / ${bPlusRank} 到 B+ Rank`);
+        } else if (value < aRank) {
+            setMaxValue(aRank);
             setMinValue(bPlusRank)
-            setValueLabel(`${value} / ${aPlusRank} to A Rank`);
+            setValueLabel(`${value} / ${aRank} 到 A Rank`);
+        } else if (value < aPlusRank) {
+            setMaxValue(aRank);
+            setMinValue(bPlusRank)
+            setValueLabel(`${value} / ${aPlusRank} 到 A+ Rank`);
         } else if (value < sRank) {
             setMaxValue(sRank);
             setMinValue(aPlusRank)
-            setValueLabel(`${value} / ${sRank} to S Rank`);
+            setValueLabel(`${value} / ${sRank} 到 S Rank`);
         } else {
             setMaxValue(value);
             setMinValue(sRank)
@@ -62,7 +67,7 @@ export default function CustomProgressBar({score}: { score: number }) {
                 label: "tracking-wider font-medium text-default-600",
                 value: "text-foreground/60",
             }}
-            label="Score"
+            label="评价分数"
             value={parseFloat(score.toFixed(2))}
             maxValue={maxValue}
             minValue={minValue}
