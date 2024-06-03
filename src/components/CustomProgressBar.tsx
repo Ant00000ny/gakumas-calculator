@@ -11,34 +11,26 @@ export default function CustomProgressBar({score}: { score: number }) {
     let sRank = 13000;
 
     const [valueLabel, setValueLabel] = useState('');
-    const [minValue, setMinValue] = useState(0);
     const maxValue = 13000
+    const minValue = 0
 
 
     const updateValues = (value: number) => {
         if (value < cRank) {
-            setMinValue(0)
             setValueLabel(`${value} / ${cRank} 到 C Rank`);
         } else if (value < cPlusRank) {
-            setMinValue(cRank)
             setValueLabel(`${value} / ${cPlusRank} 到 C+ Rank`);
         } else if (value < bRank) {
-            setMinValue(cPlusRank)
             setValueLabel(`${value} / ${bRank} 到 B Rank`);
         } else if (value < bPlusRank) {
-            setMinValue(bRank)
             setValueLabel(`${value} / ${bPlusRank} 到 B+ Rank`);
         } else if (value < aRank) {
-            setMinValue(bPlusRank)
             setValueLabel(`${value} / ${aRank} 到 A Rank`);
         } else if (value < aPlusRank) {
-            setMinValue(aRank)
             setValueLabel(`${value} / ${aPlusRank} 到 A+ Rank`);
         } else if (value < sRank) {
-            setMinValue(aPlusRank)
             setValueLabel(`${value} / ${sRank} 到 S Rank`);
         } else {
-            setMinValue(sRank)
             setValueLabel(`已达成 S Rank！`);
         }
     }
