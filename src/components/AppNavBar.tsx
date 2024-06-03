@@ -1,6 +1,7 @@
 import React from "react";
 import {Link, Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/react";
 import {GithubIcon} from "@/components/icon/GithubIcon";
+import {Image} from "@nextui-org/image";
 
 export default function AppNavBar() {
     const githubLink = "https://www.github.com/Ant00000ny/gakumas-calculator";
@@ -10,7 +11,7 @@ export default function AppNavBar() {
     return (
         <Navbar className="fixed">
             <NavbarBrand>
-                <p className="font-bold text-sans">学</p>
+                <Image src="/kotone.png" alt="kotone logo" width={40} height={40}></Image>
             </NavbarBrand>
             <NavbarContent className="flex justify-center items-center" justify="center">
                 <NavbarItem>
