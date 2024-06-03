@@ -7,7 +7,7 @@ export default function AppNavBar() {
 
 
     return (
-        <Navbar>
+        <Navbar className="fixed">
             <NavbarBrand>
                 <p className="font-bold text-inherit">G</p>
             </NavbarBrand>

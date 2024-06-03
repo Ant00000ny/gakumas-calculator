@@ -13,3 +13,7 @@
     text-wrap: balance;
   }
 }
+
+* {
+  @apply box-border
+}

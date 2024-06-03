@@ -1,11 +1,12 @@
 import AppNavBar from "@/components/AppNavBar";
-import Hero from "@/components/Hero";
+import Calculator from "@/components/Calculator";
 
 export default function Home() {
   return (
       <>
           <AppNavBar></AppNavBar>
-          <Hero></Hero>
+          {/*<Hero></Hero>*/}
+          <Calculator></Calculator>
       </>
   );
 }
