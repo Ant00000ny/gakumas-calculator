@@ -1,8 +1,8 @@
 'use client'
 
 import CustomProgressBar from "@/components/CustomProgressBar";
-import {Input} from "@nextui-org/input";
 import {useState} from "react";
+import {Input} from "@nextui-org/react";
 
 export default function Calculator() {
     const [viValue, setViValue] = useState(0);

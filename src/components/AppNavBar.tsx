@@ -4,6 +4,7 @@ import {GithubIcon} from "@/components/icon/GithubIcon";
 
 export default function AppNavBar() {
     const githubLink = "https://www.github.com/Ant00000ny/gakumas-calculator";
+    const name = "Gakumas Calculator"
 
 
     return (
@@ -13,7 +14,7 @@ export default function AppNavBar() {
             </NavbarBrand>
             <NavbarContent className="flex justify-center items-center" justify="center">
                 <NavbarItem>
-                    <p className="font-bold text-inherit">Gakumas Calculator</p>
+                    <p className="font-bold text-inherit">{name}</p>
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
