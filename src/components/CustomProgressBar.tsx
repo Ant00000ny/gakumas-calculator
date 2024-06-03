@@ -47,7 +47,7 @@ export default function CustomProgressBar({score}: { score: number }) {
         } else {
             setMaxValue(value);
             setMinValue(sRank)
-            setValueLabel(`S rank achieved, awsome!`);
+            setValueLabel(`已达成 S Rank！`);
         }
     }
 

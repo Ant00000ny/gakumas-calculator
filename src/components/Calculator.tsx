@@ -5,6 +5,40 @@ import {useState} from "react";
 import {Input} from "@nextui-org/react";
 import {Checkbox} from "@nextui-org/checkbox";
 
+const calculateNeededTestScore = (vi: string, da: string, vo: string, targetFinalScore: number, isFirst: boolean) => {
+    const viNumber = vi ? Number(vi) : 0;
+    const daNumber = da ? Number(da) : 0;
+    const voNumber = vo ? Number(vo) : 0;
+    let baseScore = (viNumber + daNumber + voNumber + 90) * 2.3;
+
+    if (isFirst) {
+        baseScore += 1700;
+    }
+
+    const targetTestScore = targetFinalScore - baseScore;
+
+    let neededTestScore = 0;
+
+    if (targetTestScore <= 0) {
+        neededTestScore = 0;
+    } else if (targetTestScore <= 1500) {
+        neededTestScore = targetTestScore / 0.3;
+    } else if (targetTestScore <= 2250) {
+        neededTestScore = (targetTestScore - 1500) / 0.15 + 5000;
+    } else if (targetTestScore <= 3050) {
+        neededTestScore = (targetTestScore - 2250) / 0.08 + 10000;
+    } else if (targetTestScore <= 3450) {
+        neededTestScore = (targetTestScore - 3050) / 0.04 + 20000;
+    } else if (targetTestScore <= 3650) {
+        neededTestScore = (targetTestScore - 3450) / 0.02 + 30000;
+    } else {
+        neededTestScore = (targetTestScore - 3650) / 0.01 + 40000;
+    }
+
+    return neededTestScore;
+};
+
+
 export default function Calculator() {
     const [viValue, setViValue] = useState<string>("");
     const [daValue, setDaValue] = useState<string>("");
@@ -12,6 +46,7 @@ export default function Calculator() {
     const [testValue, setTestValue] = useState<string>("");
     const [finalScore, setFinalScore] = useState<number | null>(0);
     const [isFirst, setIsFirst] = useState<boolean>(false);
+    const [holder, setHolder] = useState('')
 
     const handleViChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
@@ -71,13 +106,19 @@ export default function Calculator() {
         }
 
         setFinalScore(testScore);
+
+        if (!test) {
+            let toAPlus = calculateNeededTestScore(vi, da, vo, 11500, isFirst);
+            let toS = calculateNeededTestScore(vi, da, vo, 13000, isFirst);
+            setHolder(`${toAPlus.toFixed(2)} 分到 A+，${toS.toFixed(2)} 分到 S`);
+        }
     };
 
     return (
         <div className="w-screen h-screen flex flex-col justify-center">
             <div>
                 <div className="w-screen flex justify-center items-center">
-                    <div className="m-4 max-w-md flex flex-col justify-center items-center gap-4">
+                    <div className="max-w-md w-3/4 flex flex-col justify-center items-center gap-4">
                         <Input
                             type="number"
                             label="Vi"
@@ -103,6 +144,7 @@ export default function Calculator() {
                             type="number"
                             label="最终试验分数"
                             value={testValue}
+                            placeholder={holder}
                             onChange={handleTestValueChange}
                         />
                         <Checkbox
