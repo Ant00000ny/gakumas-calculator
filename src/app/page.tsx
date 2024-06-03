@@ -5,7 +5,6 @@ export default function Home() {
   return (
       <>
           <AppNavBar></AppNavBar>
-          {/*<Hero></Hero>*/}
           <Calculator></Calculator>
       </>
   );
