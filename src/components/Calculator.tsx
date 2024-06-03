@@ -45,7 +45,7 @@ export default function Calculator() {
     const [voValue, setVoValue] = useState<string>("");
     const [testValue, setTestValue] = useState<string>("");
     const [finalScore, setFinalScore] = useState<number | null>(0);
-    const [isFirst, setIsFirst] = useState<boolean>(false);
+    const [isFirst, setIsFirst] = useState<boolean>(true);
     const [holder, setHolder] = useState('')
 
     const handleViChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -99,18 +99,29 @@ export default function Calculator() {
             testScore += 3450 + 0.02 * (testNumber - 30000);
         } else if (testNumber < 50000) {
             testScore += 3650 + 0.01 * (testNumber - 40000);
-        }
+        } else {
+            testScore += 3750 + 0.004 * (testNumber - 50000);
+        } // todo
 
         if (isFirst) {
             testScore += 1700;
         }
 
+        console.log(testScore)
         setFinalScore(testScore);
 
         if (!test) {
             let toAPlus = calculateNeededTestScore(vi, da, vo, 11500, isFirst);
             let toS = calculateNeededTestScore(vi, da, vo, 13000, isFirst);
-            setHolder(`${toAPlus.toFixed(2)} 分到 A+，${toS.toFixed(2)} 分到 S`);
+            let message = ''
+            if (toAPlus > 30000) {
+                message = '距离 A+ 还很远'
+            } else if (toS > 30000) {
+                message = `${toAPlus.toFixed(2)} 分到 A+，距离 S 还很远`
+            } else {
+                message = `${toAPlus.toFixed(2)} 分到 A+，${toS.toFixed(2)} 分到 S`
+            }
+            setHolder(message);
         }
     };
 
@@ -149,6 +160,7 @@ export default function Calculator() {
                         />
                         <Checkbox
                             type="checkbox"
+                            defaultSelected
                             value={isFirst.valueOf().toString()}
                             onChange={handleIsFirstValueChange}
                         >
