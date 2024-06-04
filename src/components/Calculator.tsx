@@ -131,28 +131,28 @@ export default function Calculator() {
                 <div className="w-screen flex justify-center items-center">
                     <div className="max-w-md w-3/4 flex flex-col justify-center items-center gap-4">
                         <Input
-                            type="number"
+                            type="text"
                             label="Vi"
                             value={viValue}
                             color="warning"
                             onChange={handleViChange}
                         />
                         <Input
-                            type="number"
+                            type="text"
                             label="Da"
                             color="primary"
                             value={daValue}
                             onChange={handleDaChange}
                         />
                         <Input
-                            type="number"
+                            type="text"
                             label="Vo"
                             color="danger"
                             value={voValue}
                             onChange={handleVoChange}
                         />
                         <Input
-                            type="number"
+                            type="text"
                             label="最终试验分数"
                             value={testValue}
                             placeholder={holder}
