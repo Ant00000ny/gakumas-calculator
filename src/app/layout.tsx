@@ -8,7 +8,7 @@ const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
     title: "学马仕计算器",
-    description: "输入学马仕分数，快速自动计算成绩",
+    description: "学园偶像大师计算器 - 输入分数，快速自动计算成绩",
 };
 
 export const viewport: Viewport = {
